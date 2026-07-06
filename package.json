@@ -1,0 +1,41 @@
+{
+  "name": "shopnest-ecommerce",
+  "version": "1.0.0",
+  "description": "Full Stack E-Commerce Store – CodeAlpha Internship Task 1",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "dev:all": "concurrently \"npm run dev\" \"cd client && npm run dev\"",
+    "seed": "node data/seeder.js",
+    "seed:destroy": "node data/seeder.js -d"
+  },
+  "keywords": [
+    "ecommerce",
+    "react",
+    "nodejs",
+    "mongodb"
+  ],
+  "author": "CodeAlpha Internship",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "concurrently": "^10.0.3",
+    "nodemon": "^3.1.14"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-async-handler": "^1.2.0",
+    "express-validator": "^7.3.2",
+    "helmet": "^8.2.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.7.1",
+    "morgan": "^1.11.0",
+    "multer": "^2.2.0",
+    "semver": "^7.8.5",
+    "slugify": "^1.6.9"
+  }
+}
