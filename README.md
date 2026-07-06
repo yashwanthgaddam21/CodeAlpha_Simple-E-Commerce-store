@@ -4,122 +4,181 @@
 
 ![ShopNest Banner](https://images.unsplash.com/photo-1557821552-17105176677c?w=1200&h=300&fit=crop)
 
-**A complete, production-ready Full Stack E-Commerce Web Application**
+**A full-stack e-commerce web application built with React, Node.js, Express, and MongoDB.**
 
 Built for the **CodeAlpha Full Stack Development Internship – Task 1**
 
-[![Node.js](https://img.shields.io/badge/Node.js-18+-green?style=flat-square&logo=node.js)](https://nodejs.org)
-[![React](https://img.shields.io/badge/React-19-blue?style=flat-square&logo=react)](https://reactjs.org)
-[![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-green?style=flat-square&logo=mongodb)](https://mongodb.com)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)](https://typescriptlang.org)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-v3-06B6D4?style=flat-square&logo=tailwindcss)](https://tailwindcss.com)
+[![Node.js](https://img.shields.io/badge/Node.js-18%2B-green?style=flat-square&logo=node.js)](https://nodejs.org/)
+[![React](https://img.shields.io/badge/React-19-blue?style=flat-square&logo=react)](https://react.dev/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-green?style=flat-square&logo=mongodb)](https://www.mongodb.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v3-06B6D4?style=flat-square&logo=tailwindcss)](https://tailwindcss.com/)
 
 </div>
+
+---
+
+## 🌐 Live Demo
+
+- **Website:** [Open ShopNest Live Demo](https://code-alpha-simple-e-commerce-store-gilt.vercel.app/)
+- **Backend API Health Check:** [Check API Status](https://shopnest-api-5cnt.onrender.com/api/health)
+- **Repository:** [GitHub Repository](https://github.com/yashwanthgaddam21/CodeAlpha_Simple-E-Commerce-store)
+
+> The backend is hosted on Render’s free tier, so the first request after inactivity may take a short time.
 
 ---
 
 ## ✨ Features
 
 ### 🛒 Customer Features
-- **Authentication** – Register, login, JWT-based secure sessions
-- **Product Browsing** – Browse 17+ seeded products across 5 categories
-- **Advanced Search & Filters** – Search by name, filter by category, price range, rating
-- **Product Details** – Image gallery, specifications, reviews with ratings
-- **Shopping Cart** – Add/remove/update quantities in real-time
-- **Multi-Step Checkout** – Address → Order Summary → Payment → Confirmation
-- **Payment Simulation** – Cash on Delivery, Credit Card (simulated), UPI (simulated)
-- **Order Management** – Track orders, view order history, cancel pending orders
-- **User Profile** – Update name/photo, change password, view saved addresses
-- **Dark Mode** – Full dark/light mode with system preference detection
-- **Responsive Design** – Works perfectly on mobile, tablet, and desktop
+
+- Secure registration and login with JWT authentication
+- Browse products by category
+- Search and filter products by name, category, price, and rating
+- Product details with images, specifications, and reviews
+- Shopping cart with quantity updates
+- Multi-step checkout flow
+- Simulated payment methods: Cash on Delivery, Card, and UPI
+- Order history and eligible order cancellation
+- Profile management and password update
+- Dark and light mode support
+- Responsive layout for mobile, tablet, and desktop
 
 ### 🔧 Admin Features
-- **Dashboard** – Revenue stats, order counts, user counts, recent order table
-- **Product Management** – Full CRUD with image upload, specifications
-- **Category Management** – Create, edit, delete product categories
-- **Order Management** – View all orders, update status (pending → shipped → delivered)
-- **User Management** – View all users, block/unblock, delete
+
+- Dashboard with revenue, order, and user statistics
+- Product management: create, edit, and delete products
+- Category management
+- Order status management
+- User management: view, block/unblock, and delete users
+- Product image upload support
 
 ---
 
 ## 🛠️ Tech Stack
 
 | Layer | Technology |
-|-------|-----------|
-| **Frontend** | React 19 + TypeScript, Vite 8 |
-| **Styling** | Tailwind CSS v3, Framer Motion |
-| **State Management** | React Context API (AuthContext, CartContext) |
-| **Forms** | React Hook Form |
-| **HTTP Client** | Axios (with JWT interceptors) |
-| **Backend** | Node.js + Express 5 |
-| **Database** | MongoDB + Mongoose |
-| **Authentication** | JWT (JSON Web Tokens) + bcryptjs |
-| **File Uploads** | Multer (local disk storage) |
-| **Security** | Helmet, CORS, input validation |
-| **Dev Tools** | Nodemon, Concurrently |
+| --- | --- |
+| Frontend | React 19, TypeScript, Vite |
+| Styling | Tailwind CSS, Framer Motion |
+| State Management | React Context API |
+| Forms | React Hook Form |
+| HTTP Client | Axios |
+| Backend | Node.js, Express |
+| Database | MongoDB Atlas, Mongoose |
+| Authentication | JWT, bcryptjs |
+| File Uploads | Multer |
+| Security | Helmet, CORS |
+| Development Tools | Nodemon, Concurrently |
 
 ---
 
-## 🚀 Quick Start
+## 📁 Project Structure
 
-### Prerequisites
-- Node.js 18+
-- MongoDB (local or Atlas)
-- Git
-
-### 1. Clone & Install
-
-```bash
-git clone https://github.com/yourusername/shopnest-ecommerce.git
-cd shopnest-ecommerce
-
-# Install backend dependencies
-npm install
-
-# Install frontend dependencies
-cd client && npm install && cd ..
+```text
+CodeAlpha_Simple-E-Commerce-store/
+├── server.js                 # Express server entry point
+├── package.json              # Backend scripts and dependencies
+├── .env.example              # Environment variable template
+├── config/                   # Database configuration
+├── controllers/              # Backend business logic
+├── middleware/               # Authentication, admin, and error middleware
+├── models/                   # MongoDB/Mongoose schemas
+├── routes/                   # API route definitions
+├── utils/                    # Helper utilities
+├── data/seeder.js            # Sample data seeder
+├── uploads/                  # Local uploaded files
+└── client/                   # React + TypeScript frontend
+    ├── src/
+    │   ├── components/       # Reusable components
+    │   ├── context/          # Authentication and cart contexts
+    │   ├── pages/            # Customer and admin pages
+    │   ├── services/         # API service files
+    │   └── types/            # TypeScript types
+    └── vite.config.ts
 ```
 
-### 2. Configure Environment
+---
+
+## 🚀 Local Setup
+
+### Prerequisites
+
+- Node.js 18 or later
+- MongoDB Atlas account or local MongoDB
+- Git
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/yashwanthgaddam21/CodeAlpha_Simple-E-Commerce-store.git
+cd CodeAlpha_Simple-E-Commerce-store
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+
+cd client
+npm install
+cd ..
+```
+
+### 3. Configure Environment Variables
+
+Create a `.env` file in the root folder by copying `.env.example`.
 
 ```bash
 cp .env.example .env
 ```
 
-Edit `.env` and set your MongoDB URI:
+Add your values:
 
 ```env
 PORT=5000
 NODE_ENV=development
-MONGO_URI=mongodb://127.0.0.1:27017/shopnest_ecommerce
-# OR for MongoDB Atlas:
-# MONGO_URI=mongodb+srv://username:password@cluster0.mongodb.net/shopnest
-JWT_SECRET=your_super_secret_jwt_key
+MONGO_URI=your_mongodb_atlas_connection_string
+JWT_SECRET=your_long_random_jwt_secret
 JWT_EXPIRE=30d
 CLIENT_URL=http://localhost:5173
 ```
 
-### 3. Seed the Database
+> Do not commit `.env` because it contains private credentials.
+
+### 4. Seed the Database
 
 ```bash
 npm run seed
 ```
 
-This creates:
-- 3 users (1 admin + 2 customers)
-- 5 categories
-- 17 products with images from Unsplash
-- 4 sample reviews
+This adds sample users, categories, products, and reviews.
 
-### 4. Run Development Servers
+### 5. Run the Application
+
+Run both frontend and backend:
 
 ```bash
-# Run both frontend and backend concurrently
 npm run dev:all
+```
 
-# OR separately:
-npm run dev          # Backend on :5000
-cd client && npm run dev  # Frontend on :5173
+Or run them separately:
+
+```bash
+# Backend
+npm run dev
+```
+
+```bash
+# Frontend in another terminal
+cd client
+npm run dev
+```
+
+Open the frontend URL shown in the terminal, usually:
+
+```text
+http://localhost:5173
 ```
 
 ---
@@ -127,106 +186,52 @@ cd client && npm run dev  # Frontend on :5173
 ## 🔑 Demo Credentials
 
 | Role | Email | Password |
-|------|-------|----------|
-| **Admin** | admin@shopnest.com | Admin@123 |
-| **User** | rahul@example.com | User@123 |
-| **User** | priya@example.com | User@123 |
+| --- | --- | --- |
+| Admin | `admin@shopnest.com` | `Admin@123` |
+| User | `rahul@example.com` | `User@123` |
+| User | `priya@example.com` | `User@123` |
 
-> 💡 You can also click "Demo User" or "Demo Admin" on the login page to auto-fill!
-
----
-
-## 📁 Project Structure
-
-```
-shopnest-ecommerce/
-├── 📦 server.js              # Express entry point
-├── 📦 package.json           # Backend scripts & dependencies
-├── 📝 .env.example           # Environment variables template
-│
-├── config/
-│   └── db.js                 # MongoDB connection
-│
-├── controllers/              # Business logic
-│   ├── authController.js
-│   ├── productController.js
-│   ├── orderController.js
-│   └── ...
-│
-├── models/                   # Mongoose schemas
-│   ├── User.js
-│   ├── Product.js
-│   ├── Category.js
-│   ├── Cart.js
-│   ├── Order.js
-│   └── Review.js
-│
-├── routes/                   # API routes
-├── middleware/               # Auth, admin, error handlers
-├── utils/                    # JWT, ApiFeatures
-├── data/seeder.js            # Database seeder
-│
-└── client/                   # React frontend
-    ├── src/
-    │   ├── App.tsx           # Router setup
-    │   ├── context/          # AuthContext, CartContext
-    │   ├── pages/            # All page components
-    │   │   ├── HomePage.tsx
-    │   │   ├── ProductsPage.tsx
-    │   │   ├── ProductDetailPage.tsx
-    │   │   ├── CartPage.tsx
-    │   │   ├── CheckoutPage.tsx
-    │   │   ├── OrdersPage.tsx
-    │   │   ├── ProfilePage.tsx
-    │   │   └── admin/
-    │   ├── components/       # Reusable UI components
-    │   ├── services/         # Axios API services
-    │   ├── types/            # TypeScript interfaces
-    │   └── utils/            # Helper functions
-    └── vite.config.ts        # Vite + proxy config
-```
+> Run `npm run seed` before using the demo accounts on a fresh database.
 
 ---
 
 ## 🌐 API Endpoints
 
-### Auth
+### Authentication
+
 | Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/api/auth/register` | Register new user |
-| POST | `/api/auth/login` | Login user |
-| GET | `/api/auth/me` | Get current user |
+| --- | --- | --- |
+| POST | `/api/auth/register` | Register a new user |
+| POST | `/api/auth/login` | Log in a user |
+| GET | `/api/auth/me` | Get the current user profile |
 
 ### Products
+
 | Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/products` | List products (with filters) |
-| GET | `/api/products/featured` | Featured products |
-| GET | `/api/products/:slug` | Product by slug |
-| POST | `/api/products` | Create product (Admin) |
-| PUT | `/api/products/:id` | Update product (Admin) |
-| DELETE | `/api/products/:id` | Delete product (Admin) |
+| --- | --- | --- |
+| GET | `/api/products` | Get products with filters |
+| GET | `/api/products/featured` | Get featured products |
+| GET | `/api/products/:slug` | Get a product by slug |
+| POST | `/api/products` | Create a product (Admin) |
+| PUT | `/api/products/:id` | Update a product (Admin) |
+| DELETE | `/api/products/:id` | Delete a product (Admin) |
 
 ### Orders
+
 | Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/api/orders` | Place order |
-| GET | `/api/orders/myorders` | My orders |
-| GET | `/api/orders/:id` | Order by ID |
-| PUT | `/api/orders/:id/cancel` | Cancel order |
-| GET | `/api/orders` | All orders (Admin) |
-| PUT | `/api/orders/:id/status` | Update status (Admin) |
+| --- | --- | ---|
+| POST | `/api/orders` | Create an order |
+| GET | `/api/orders/myorders` | Get logged-in user orders |
+| GET | `/api/orders/:id` | Get an order by ID |
+| PUT | `/api/orders/:id/cancel` | Cancel an eligible order |
+| GET | `/api/orders` | Get all orders (Admin) |
+| PUT | `/api/orders/:id/status` | Update order status (Admin) |
 
----
+### Health Check
 
-## 🎨 UI Preview
-
-The app features:
-- 🌙 **Dark/Light Mode** – Seamless toggle
-- 🎯 **Glassmorphism Hero** – Animated gradient sections  
-- 🃏 **Product Cards** – Hover animations, discount badges, wishlist
-- 📦 **Multi-Step Checkout** – Stepper with animated transitions
-- 📊 **Admin Dashboard** – Stats cards, sortable tables
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| GET | `/api/health` | Check backend API status |
 
 ---
 
@@ -234,43 +239,87 @@ The app features:
 
 ```bash
 # Backend
-npm start          # Production server
-npm run dev        # Development with nodemon
-npm run seed       # Seed database with sample data
-npm run seed:destroy  # Clear all database data
+npm start              # Start production server
+npm run dev            # Start backend with nodemon
+npm run seed           # Add demo data
+npm run seed:destroy   # Remove seeded data
 
-# Frontend (from /client)
-npm run dev        # Vite dev server
-npm run build      # Production build
-npm run preview    # Preview production build
+# Frontend (inside client folder)
+npm run dev            # Start Vite development server
+npm run build          # Create production build
+npm run preview        # Preview production build
 
-# Both (from root)
-npm run dev:all    # Start both concurrently
+# Root folder
+npm run dev:all        # Run frontend and backend together
 ```
 
 ---
 
-## 🌍 Deployment
+## 🚀 Deployment
 
-### Backend (Render/Railway)
-1. Set environment variables in your hosting dashboard
-2. Deploy with `npm start` command
+### Backend — Render
 
-### Frontend (Vercel/Netlify)
-1. Set `VITE_API_URL` to your backend URL
-2. Build command: `npm run build` 
-3. Output directory: `client/dist`
+Set these environment variables in Render:
+
+```env
+NODE_ENV=production
+MONGO_URI=your_mongodb_atlas_connection_string
+JWT_SECRET=your_long_random_jwt_secret
+CLIENT_URL=https://code-alpha-simple-e-commerce-store-gilt.vercel.app
+```
+
+Build command:
+
+```bash
+npm install
+```
+
+Start command:
+
+```bash
+npm start
+```
+
+### Frontend — Vercel
+
+```text
+Framework Preset: Vite
+Root Directory: client
+Build Command: npm run build
+Output Directory: dist
+Install Command: npm install
+```
+
+Set this environment variable in Vercel:
+
+```env
+VITE_API_URL=https://shopnest-api-5cnt.onrender.com/api
+```
+
+---
+
+## 🧪 Testing Checklist
+
+- Register a new user and log in
+- Test demo customer and admin accounts
+- Browse, search, and filter products
+- Add, remove, and update cart items
+- Complete checkout using simulated payment methods
+- View order history
+- Test admin product, category, user, and order management
+- Test mobile responsiveness
+- Verify protected pages redirect unauthenticated users to login
 
 ---
 
 ## 👤 Author
 
-**Built for CodeAlpha Full Stack Internship – Task 1**
+**Yashwanth Gaddam**
 
-> This project demonstrates full-stack development capabilities including REST API design, MongoDB data modeling, React state management, TypeScript typing, and modern UI/UX design patterns.
+Built for the **CodeAlpha Full Stack Development Internship – Task 1**
 
 ---
 
 ## 📄 License
 
-This project is for educational/internship purposes. Feel free to use it as a reference!
+This project is created for educational and internship purposes.
