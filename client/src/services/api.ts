@@ -1,27 +1,27 @@
 import axios from 'axios';
 
-const API_URL =
-  import.meta.env.VITE_API_URL ||
-  'http://localhost:5000/api';
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 const api = axios.create({
-  baseURL: API_URL,
+  baseURL: API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
 api.interceptors.request.use((config) => {
-  const userInfo = localStorage.getItem('userInfo');
+  const user = localStorage.getItem('user');
 
-  if (userInfo) {
+  if (user) {
     try {
-      const user = JSON.parse(userInfo);
-      if (user.token) {
-        config.headers.Authorization = `Bearer ${user.token}`;
+      const parsedUser = JSON.parse(user);
+
+      if (parsedUser?.token) {
+        config.headers.Authorization = `Bearer ${parsedUser.token}`;
       }
     } catch {
-      localStorage.removeItem('userInfo');
+      localStorage.removeItem('user');
     }
   }
 
@@ -31,12 +31,10 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   (response) => response,
   (error) => {
+    // Clear an expired/invalid login, but do not force a browser redirect.
+    // React Router's ProtectedRoute will redirect safely to /login.
     if (error.response?.status === 401) {
-      localStorage.removeItem('userInfo');
-
-      if (!window.location.pathname.includes('/login')) {
-        window.location.href = '/login';
-      }
+      localStorage.removeItem('user');
     }
 
     return Promise.reject(error);
