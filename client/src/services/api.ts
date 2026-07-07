@@ -1,34 +1,44 @@
 import axios from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const API_URL =
+  import.meta.env.VITE_API_URL ||
+  'http://localhost:5000/api';
 
 const api = axios.create({
-  baseURL: API_BASE_URL,
-  headers: { 'Content-Type': 'application/json' },
+  baseURL: API_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
-// Attach JWT token to every request
 api.interceptors.request.use((config) => {
-  const user = localStorage.getItem('user');
-  if (user) {
+  const userInfo = localStorage.getItem('userInfo');
+
+  if (userInfo) {
     try {
-      const parsed = JSON.parse(user);
-      if (parsed?.token) {
-        config.headers.Authorization = `Bearer ${parsed.token}`;
+      const user = JSON.parse(userInfo);
+      if (user.token) {
+        config.headers.Authorization = `Bearer ${user.token}`;
       }
-    } catch {}
+    } catch {
+      localStorage.removeItem('userInfo');
+    }
   }
+
   return config;
 });
 
-// Global error handling
 api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      localStorage.removeItem('user');
-      window.location.href = '/login';
+      localStorage.removeItem('userInfo');
+
+      if (!window.location.pathname.includes('/login')) {
+        window.location.href = '/login';
+      }
     }
+
     return Promise.reject(error);
   }
 );
